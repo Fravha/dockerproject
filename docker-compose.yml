@@ -1,0 +1,30 @@
+services:
+  db:
+    image: mariadb:10.6
+    container_name: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: notSecureChangeMe
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8085:80
+    environment:
+      - PMA_ARBITRARY=1
+
+  web:
+    image: php:8.2-apache
+    container_name: php-web
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - 8000:80
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+    depends_on:
+      - db
