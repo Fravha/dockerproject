@@ -1,0 +1,264 @@
+:root {
+    --main-bg-color: #131b33;
+    --primary-color: #4CAF50;
+    --hover-bg-color: #ffffff33;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    /*font-family: 'Raleway', sans-serif;*/
+}
+
+.raleway { font-family: 'Raleway', sans-serif; }
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d8d7d8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Encabezado */
+header {
+    background-color: var(--main-bg-color);
+    padding: 5px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease;
+    align-items: center;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    padding: 16px 14px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.navbar ul li a:hover {
+    background-color: #ffffff33;
+    color: #f0f0f0;
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+.menu-toggle {
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+.navbar .evento-lista ul {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 17px;
+    text-align: left;
+    list-style-type: disc;
+    padding-left: 30px;
+    grid-template-columns: repeat(1, 2fr); /* Dos elementos por fila */
+}
+
+/* Search Form */
+.search-form {
+    display: flex;
+    align-items: center; /* Centra el formulario de búsqueda verticalmente */
+    border-radius: 5px;
+    background-color: #ffffff20;
+    padding: 5px;
+}
+
+.search-form input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    outline: none;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.search-form input:focus {
+    border-color: #a28faf;
+}
+
+.search-form button {
+    background-color: #a28faf;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #8e7a99;
+}
+
+
+/* Estilo del main */
+main {
+    padding: 300px;
+    align-items: center;
+    justify-content: center;
+    display: table-footer-group;
+    flex: 1;
+}
+
+/* Estilo de las secciones */
+section {
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Títulos de sección */
+h1 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+/* Estilo de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Footer */
+footer {
+    background-color: #131b33;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+
+/* Reponsive */
+
+@media screen and (max-width: 850px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        color: white;
+        font-size: 28px;
+        padding: 10px;
+    }
+
+    .search-form {
+        order: 3;
+        margin-left: auto;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: -100%;
+        background-color: #333;
+        padding: 0;
+        transition: left 0.3s ease;
+    }
+
+    .navbar.active ul {
+        display: flex;
+        left: 0;
+    }
+
+    .navbar ul li {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .event-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .event-item {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar ul {
+        top: 40px;
+    }
+
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-form input, 
+    .search-form button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .event-grid {
+        grid-template-columns: 1fr;
+    }
+}

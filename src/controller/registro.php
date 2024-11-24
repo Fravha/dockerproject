@@ -17,13 +17,13 @@ $stmt->execute();
 
 // Verifica si la inserción fue exitosa
 if ($stmt->affected_rows > 0) {
-    echo '<scirpt>
-		alert("Usuario creado exitosamente.");
-		window.location = "../index.php";
-	</script>';
+	echo '<script>
+			alert("Usuario creado exitosamente.");
+			window.location = "../index.php";
+		</script>';
 } else {
-    echo '<script>
-		alert("Error al registrar.");
+echo '<script>
+		alert("Error al registrar. Intenta nuevamente.");
 		window.location = "../index.php";
 	</script>';
 }
